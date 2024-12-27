@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('partials/head'); %>
+</head>
+<body class="container-fluid">
+    <nav class="navbar navbar-expand-lg bg-dark navbar-light d-none d-lg-block" id="templatemo_nav_top">
+        <div class="container text-light">
+            Vietnam Supplement Store System
+        </div>
+    </nav>
+    
+    <header>
+        <%- include('partials/header'); %>
+    </header>
+
+        <!-- Modal -->
+        <div class="modal fade bg-white" id="templatemo_search" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="w-100 pt-1 mb-5 text-right">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form action="" method="get" class="modal-content modal-body border-0 p-0">
+                    <div class="input-group mb-2">
+                        <input type="text" class="form-control" id="inputModalSearch" name="q" placeholder="Search ...">
+                        <button type="submit" class="input-group-text bg-success text-light">
+                            <i class="fa fa-fw fa-search text-white"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    
+        <div id="template-mo-zay-hero-carousel" class="carousel slide" data-bs-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="0" class="active"></li>
+                <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="1"></li>
+                <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="container">
+                        <div class="row p-5">
+                            <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
+                                <img class="img-fluid" src="https://cdn.shopify.com/s/files/1/1497/9682/files/3.How_Much_Whey_Protein_Should_I_Take_Per_Day.jpg?v=1683207268&width=750" alt="" style="font-size: 50px;">
+                            </div>
+                            <div class="col-lg-6 mb-0 d-flex align-items-center">
+                                <div class="text-align-left align-self-center">
+                                    <h1 class="h1 text-success"><b>Whey Protein</b></h1>
+                                    <h3 class="h2">Power Your Performance</h3>
+                                    <p>
+                                        Maximize your muscle growth and achieve your body goals faster with our potent Mass Gainer formula. Packed with an ideal balance of protein, carbohydrates, and healthy fats, this high-calorie supplement helps you bulk up and build muscle mass without compromising quality. Whether you're a hardgainer or simply looking to gain weight in a healthy way, our Mass Gainer provides the essential nutrients needed to accelerate muscle development and recovery. Power up and fuel your growth—because bigger muscles start here.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="container">
+                        <div class="row p-5">
+                            <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
+                                <img class="img-fluid" src="https://cdn.shopify.com/s/files/1/0284/6094/1452/files/How_many_scoops_of_mass_gainers_480x480.jpg?v=1643353877" alt="">
+                            </div>
+                            <div class="col-lg-6 mb-0 d-flex align-items-center">
+                                <div class="text-align-left">
+                                    <h1 class="h1">Mass Gainer</h1>
+                                    <h3 class="h2">Build Strength, Gain Muscle</h3>
+                                    <p>
+                                        Maximize your muscle growth and achieve your body goals faster with our potent Mass Gainer formula. Packed with an ideal balance of protein, carbohydrates, and healthy fats, this high-calorie supplement helps you bulk up and build muscle mass without compromising quality. Whether you're a hardgainer or simply looking to gain weight in a healthy way, our Mass Gainer provides the essential nutrients needed to accelerate muscle development and recovery. Power up and fuel your growth—because bigger muscles start here.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="container">
+                        <div class="row p-5">
+                            <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
+                                <img class="img-fluid" src="https://cdn.prod.website-files.com/62e18da95149ec2ee0d87b5b/65971a2c7013428006b918ba_64b5ca236f0d835503f96825_6442e918d0e1248812c962fa_thumbnail-do-vitamins-and-minerals-help-with-weight-loss.webp" alt="">
+                            </div>
+                            <div class="col-lg-6 mb-0 d-flex align-items-center">
+                                <div class="text-align-left">
+                                    <h1 class="h1">Vitamins & Minerals</h1>
+                                    <h3 class="h2">Essential Support for Your Body</h3>
+                                    <p>
+                                        Nourish your body with the essential nutrients it craves with our comprehensive Vitamins & Minerals supplement. Packed with key vitamins and minerals, this powerful formula helps support your immune system, boost energy levels, and improve overall wellness. Whether you're looking to enhance your daily nutrition or fill in the gaps in your diet, our Vitamins & Minerals provide the foundation for a healthier, more vibrant life. Keep your body in balance with the nutrients it deserves—because your health is everything.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev text-decoration-none w-auto ps-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="prev">
+                <i class="fas fa-chevron-left"></i>
+            </a>
+            <a class="carousel-control-next text-decoration-none w-auto pe-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="next">
+                <i class="fas fa-chevron-right"></i>
+            </a>
+        </div>
+
+    <footer class="bg-dark" id="tempaltemo_footer">
+        <%- include('partials/footer'); %>
+    </footer>
+
+    <%- include('partials/script'); %>
+
+</body>
+</html>

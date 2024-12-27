@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('partials/head'); %>
+</head>
+<body class="container-fluid">
+    <nav class="navbar navbar-expand-lg bg-dark navbar-light d-none d-lg-block" id="templatemo_nav_top">
+        <div class="container text-light">
+            Vietnam Supplement Store System
+        </div>
+    </nav>
+    
+    <header>
+        <%- include('partials/header'); %>
+    </header>
+
+    <div class="modal fade bg-white" id="templatemo_search" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="w-100 pt-1 mb-5 text-right">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="" method="get" class="modal-content modal-body border-0 p-0">
+                <div class="input-group mb-2">
+                    <input type="text" class="form-control" id="inputModalSearch" name="q" placeholder="Search ...">
+                    <button type="submit" class="input-group-text bg-success text-light">
+                        <i class="fa fa-fw fa-search text-white"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <section class="bg-light">
+        <div class="container pb-5">
+            <div class="row">
+                <div class="col-lg-5 mt-5">
+                    <div class="card mb-3">
+                        <img class="card-img img-fluid" src="<%= product.image %>" alt="Card image cap" id="product-detail">
+                    </div>
+                </div>
+                <!-- col end -->
+                <div class="col-lg-7 mt-5">
+                    <div class="card">
+                        <div class="card-body">
+                            <h1 class="h2"><%= product.product_name %></h1>
+                            <p class="h3 py-2"><%= product.price.toLocaleString() %> VND</p>
+
+                            <h6>Description:</h6>
+                            <p><%= product.description %></p>
+                            
+                            <form action="/cart/add" method="POST">
+                                <input type="hidden" name="productId" value="<%= product._id %>">
+                                <div class="row pb-3">
+                                    <div class="col-auto">
+                                        <ul class="list-inline">
+                                            <li class="list-inline-item">Quantity</li>
+                                            <li class="list-inline-item">
+                                                <input type="number" name="quantity" id="cart-quantity" value="1" min="1" class="form-control" style="width: 80px; display: inline-block;">
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="row pb-3">
+                                    <div class="col d-grid">
+                                        <button type="submit" class="btn btn-success btn-lg" name="submit" value="addtocart">Add To Cart</button>
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark" id="tempaltemo_footer">
+        <%- include('partials/footer'); %>
+    </footer>
+
+    <%- include('partials/script'); %>
+
+    <script>
+        document.getElementById("addToCartForm").addEventListener("submit", function(event) {
+            event.preventDefault(); 
+
+            const quantity = document.getElementById("cart-quantity").value;
+            const productId = document.querySelector("input[name='productId']").value;
+    
+            fetch('/cart/add', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    productId: productId,
+                    quantity: quantity
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Product added to cart!');
+                } else {
+                    alert('Failed to add product to cart');
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        });
+    </script>
+
+</body>
+</html>

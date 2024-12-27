@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('partials/head'); %>
+</head>
+<body class="container-fluid">
+    <nav class="navbar navbar-expand-lg bg-dark navbar-light d-none d-lg-block" id="templatemo_nav_top">
+        <div class="container text-light">
+            Vietnam Supplement Store System
+        </div>
+    </nav>
+    
+    <header>
+        <%- include('partials/header'); %>
+    </header>
+
+    <div class="container py-5">
+        <h1 class="mb-4">My Orders</h1>
+    
+        <% if (orders.length === 0) { %>
+            <p>You have not placed any orders yet.</p>
+        <% } else { %>
+            <div class="list-group">
+                <% orders.forEach(order => { %>
+                    <div class="list-group-item list-group-item-action">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <h5 class="mb-1">Order #<%= order._id %></h5>
+                                <p class="mb-1"><strong>Status:</strong> <%= order.status %></p>
+                                <p class="mb-1"><strong>Total:</strong> <%= order.totalPrice.toLocaleString() %> VND</p>
+                                <p class="mb-1"><strong>Date:</strong> <%= new Date(order.createdAt).toLocaleString() %></p>
+                            </div>
+                            <div class="align-self-center">
+                                <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#orderDetailsModal<%= order._id %>">
+                                    View Details
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal fade" id="orderDetailsModal<%= order._id %>" tabindex="-1" aria-labelledby="orderDetailsModalLabel<%= order._id %>" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="orderDetailsModalLabel<%= order._id %>">Order #<%= order._id %> Details</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <p><strong>Order ID:</strong> <%= order._id %></p>
+                                    <p><strong>Total Price:</strong> <%= order.totalPrice.toLocaleString() %> VND</p>
+                                    <p><strong>Payment Method:</strong> <%= order.paymentMethod %></p>
+                                    <p><strong>Date:</strong> <%= new Date(order.createdAt).toLocaleString() %></p>
+                                    <p><strong>Status:</strong> <%= order.status %></p>
+                                    <h5>Items</h5>
+                                    <ul>
+                                        <% order.items.forEach(item => { %>
+                                            <li><%= item.product.product_name %> - <%= item.quantity %> x <%= item.product.price.toLocaleString() %> VND</li>
+                                        <% }) %>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+        <% } %>
+        
+    </div>
+
+    <footer class="bg-dark" id="tempaltemo_footer">
+        <%- include('partials/footer'); %>
+    </footer>
+
+    <%- include('partials/script'); %>
+
+</body>
+</html>
